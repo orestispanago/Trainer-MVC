@@ -135,7 +135,7 @@ public class Student implements Serializable {
 
     @Override
     public String toString() {
-        return "org.afdemp.studentmvc.entities.Students[ id=" + id + " ]";
+        return "org.panago.trainermvc.entities.Students[ id=" + id + " ]";
     }
     
 }

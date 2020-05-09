@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({ "org.afdemp.studentmvc.configuration" })
+@ComponentScan({ "org.panago.trainermvc.configuration" })
 @PropertySource(value = { "classpath:application.properties" })
 public class HibernateConfiguration {
 
@@ -29,7 +29,7 @@ public class HibernateConfiguration {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "org.afdemp.studentmvc.entities" });
+        sessionFactory.setPackagesToScan(new String[] { "org.panago.trainermvc.entities" });
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
      }

@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "org.afdemp.studentmvc")
+@ComponentScan(basePackages = "org.panago.trainermvc")
 public class AppConfig {
 	
 	@Bean
