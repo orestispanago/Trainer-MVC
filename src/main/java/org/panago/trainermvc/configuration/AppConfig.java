@@ -1,4 +1,4 @@
-package org.afdemp.studentmvc.configuration;
+package org.panago.trainermvc.configuration;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

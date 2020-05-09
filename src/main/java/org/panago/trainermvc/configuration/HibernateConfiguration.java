@@ -1,4 +1,4 @@
-package org.afdemp.studentmvc.configuration;
+package org.panago.trainermvc.configuration;
 
 import java.util.Properties;
 

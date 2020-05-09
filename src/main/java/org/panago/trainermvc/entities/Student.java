@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package org.afdemp.studentmvc.entities;
+package org.panago.trainermvc.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -22,10 +17,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author mac
- */
+
 @Entity
 @Table(name = "students", catalog = "studentmvc", schema = "")
 @XmlRootElement

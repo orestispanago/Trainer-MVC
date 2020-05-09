@@ -1,19 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package org.afdemp.studentmvc.dao;
+package org.panago.trainermvc.dao;
 
 import java.util.List;
-import org.afdemp.studentmvc.entities.Student;
+import org.panago.trainermvc.entities.Student;
 import org.hibernate.Criteria;
 import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author mac
- */
+
 @Repository("studentDao")
 public class StudentDaoImpl extends AbstractDao<Integer, Student> implements IStudentDao {
 

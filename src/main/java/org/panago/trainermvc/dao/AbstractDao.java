@@ -1,4 +1,4 @@
-package org.afdemp.studentmvc.dao;
+package org.panago.trainermvc.dao;
 
 import java.io.Serializable;
 

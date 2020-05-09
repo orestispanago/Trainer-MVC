@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package org.afdemp.studentmvc.controllers;
+package org.panago.trainermvc.controllers;
 
 import java.util.List;
-import org.afdemp.studentmvc.entities.Student;
-import org.afdemp.studentmvc.services.IStudent;
+import org.panago.trainermvc.entities.Student;
+import org.panago.trainermvc.services.IStudent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -17,10 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-/**
- *
- * @author mac
- */
+
 @Controller
 @RequestMapping("/")
 public class StudentController {

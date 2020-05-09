@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.afdemp</groupId>
-    <artifactId>StudentMVC</artifactId>
+    <artifactId>TrainerMVC</artifactId>
     <version>1.0.PRERELEASE</version>
     <packaging>war</packaging>
 
-    <name>StudentMVC</name>
+    <name>TrainerMVC</name>
 
     
         <properties>
