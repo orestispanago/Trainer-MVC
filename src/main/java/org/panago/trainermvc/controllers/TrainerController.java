@@ -1,8 +1,8 @@
 package org.panago.trainermvc.controllers;
 
 import java.util.List;
-import org.panago.trainermvc.entities.Student;
-import org.panago.trainermvc.services.IStudent;
+import org.panago.trainermvc.entities.Trainer;
+import org.panago.trainermvc.services.ITrainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -15,55 +15,55 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/")
-public class StudentController {
+public class TrainerController {
     private String listurl = "list";
     private String editurl = "edit";
     private String deleteurl = "delete";
     private String updateurl = "update";
     
     @Autowired
-    IStudent studentService;
+    ITrainer trainerService;
     
     @Autowired
     MessageSource messageSource;
     
     // index
     @RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
-    public String listAllStudents(ModelMap view, @RequestParam(required = false) String msg) {
-        List<Student> students  = studentService.findAllStudents();
-        view.addAttribute("students", students);
+    public String listAllTrainers(ModelMap view, @RequestParam(required = false) String msg) {
+        List<Trainer> trainers  = trainerService.findAllTrainers();
+        view.addAttribute("trainers", trainers);
         view.addAttribute("editurl", editurl);
         view.addAttribute("deleteurl", deleteurl);
         view.addAttribute("msg", msg);
-        return("studentlist");
+        return("trainerlist");
     }
     
-    // get form for new student
+    // get form for new trainer
     @RequestMapping("/new")
-    public String newStudent(ModelMap view) {
-        Student student = new Student();
-        view.addAttribute("student", student);
+    public String newTrainer(ModelMap view) {
+        Trainer trainer = new Trainer();
+        view.addAttribute("trainer", trainer);
         view.addAttribute("listurl", listurl);
-        return("newstudent");
+        return("newtrainer");
     }
     
-    // post form for new student
+    // post form for new trainer
     @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String saveStudent(ModelMap view, Student student) {
-        if(studentService.save(student)) {
+    public String saveTrainer(ModelMap view, Trainer trainer) {
+        if(trainerService.save(trainer)) {
             view.addAttribute("message", new String("All good!"));
         }
         else {
             view.addAttribute("message", new String("All wrong!"));
         }
         view.addAttribute("listurl", listurl);
-        return("newstudent");
+        return("newtrainer");
     }
     
-    // delete for an existing student
+    // delete for an existing trainer
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-    public String deleteStudent(ModelMap view, @PathVariable int id) {
-        if(studentService.delete(id)) {
+    public String deleteTrainer(ModelMap view, @PathVariable int id) {
+        if(trainerService.delete(id)) {
             view.addAttribute("msg", new String("Deleted Successfully!"));
         } else {
             view.addAttribute("msg", new String("Not Deleted!"));
@@ -71,19 +71,19 @@ public class StudentController {
         return("redirect:/list");
     }
     
-    // show edit / update for an existing student
+    // show edit / update for an existing trainer
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public String editStudent(ModelMap view, @PathVariable int id) {
-        Student student = studentService.findById(id);
-        view.addAttribute("student", student);
+    public String editTrainer(ModelMap view, @PathVariable int id) {
+        Trainer trainer = trainerService.findById(id);
+        view.addAttribute("trainer", trainer);
         view.addAttribute("updateurl", updateurl);
-        return("editstudent");
+        return("edittrainer");
     }
     
-    // store edit / update for an existing student
+    // store edit / update for an existing trainer
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String updateStudent(ModelMap view, Student student) {
-        studentService.update(student);
+    public String updateTrainer(ModelMap view, Trainer trainer) {
+        trainerService.update(trainer);
         view.addAttribute("msg", new String(""));
         return("redirect:/list");
     }

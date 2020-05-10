@@ -19,16 +19,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 @Entity
-@Table(name = "students", catalog = "studentmvc", schema = "")
+@Table(name = "trainers", catalog = "trainermvc", schema = "")
 @XmlRootElement
-//@NamedQueries({
-//    @NamedQuery(name = "Students.findAll", query = "SELECT s FROM Students s")
-//    , @NamedQuery(name = "Students.findById", query = "SELECT s FROM Students s WHERE s.id = :id")
-//    , @NamedQuery(name = "Students.findByFirstName", query = "SELECT s FROM Students s WHERE s.firstName = :firstName")
-//    , @NamedQuery(name = "Students.findByLastName", query = "SELECT s FROM Students s WHERE s.lastName = :lastName")
-//    , @NamedQuery(name = "Students.findByDateOfBirth", query = "SELECT s FROM Students s WHERE s.dateOfBirth = :dateOfBirth")
-//    , @NamedQuery(name = "Students.findByTuitionFees", query = "SELECT s FROM Students s WHERE s.tuitionFees = :tuitionFees")})
-public class Student implements Serializable {
+public class Trainer implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
@@ -48,30 +41,31 @@ public class Student implements Serializable {
     @Size(min = 1, max = 30)
     @Column(name = "last_name", nullable = false, length = 30)
     private String lastName;
+//    @Basic(optional = false)
+//    @NotNull
+//    @Column(name = "date_of_birth", nullable = false)
+//    @Temporal(TemporalType.DATE)
+//    private Date dateOfBirth;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "date_of_birth", nullable = false)
-    @Temporal(TemporalType.DATE)
-    private Date dateOfBirth;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "tuition_fees", nullable = false)
-    private int tuitionFees;
+    @Column(name = "subject", nullable = false)
+    private String subject;
 
-    public Student() {
+    public Trainer() {
     }
 
-    public Student(Integer id) {
+    public Trainer(Integer id) {
         this.id = id;
     }
 
-    public Student(Integer id, String firstName, String lastName, Date dateOfBirth, int tuitionFees) {
+    public Trainer(Integer id, String firstName, String lastName, String subject) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.dateOfBirth = dateOfBirth;
-        this.tuitionFees = tuitionFees;
+        this.subject = subject;
     }
+
+
 
     public Integer getId() {
         return id;
@@ -97,21 +91,15 @@ public class Student implements Serializable {
         this.lastName = lastName;
     }
 
-    public Date getDateOfBirth() {
-        return dateOfBirth;
+    public String getSubject() {
+        return subject;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
-    public int getTuitionFees() {
-        return tuitionFees;
-    }
 
-    public void setTuitionFees(int tuitionFees) {
-        this.tuitionFees = tuitionFees;
-    }
 
     @Override
     public int hashCode() {
@@ -123,10 +111,10 @@ public class Student implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Student)) {
+        if (!(object instanceof Trainer)) {
             return false;
         }
-        Student other = (Student) object;
+        Trainer other = (Trainer) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -135,7 +123,7 @@ public class Student implements Serializable {
 
     @Override
     public String toString() {
-        return "org.panago.trainermvc.entities.Students[ id=" + id + " ]";
+        return "org.panago.trainermvc.entities.Trainers[ id=" + id + " ]";
     }
     
 }
