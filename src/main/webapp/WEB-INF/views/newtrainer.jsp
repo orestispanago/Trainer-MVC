@@ -18,23 +18,24 @@
 
         <div class="container">
             <h2>Add trainer</h2>
-            <form method="POST" action="new" modelAttribute="trainer">
+            <form:form method="POST" action="new" modelAttribute="trainer">
+                <form:input type="hidden" path="id" id="id"/>
                 <div class="form-group row">
                     <label for="inputfirstname" class="col-sm-2 col-form-label">First name</label>
                     <div class="col-sm-10">
-                        <input type="firstname" class="form-control" id="inputfirstname" placeholder="First name" path="firstName">
+                        <form:input type="firstname" class="form-control" id="inputfirstname" placeholder="First name" path="firstName" /><br />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputlastname" class="col-sm-2 col-form-label">Last name</label>
                     <div class="col-sm-10">
-                        <input type="lastname" class="form-control" id="inputlastname" placeholder="Last name" path="lastName">
+                        <form:input type="lastname" class="form-control" id="inputlastname" placeholder="Last name" path="lastName" /><br />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputsubject" class="col-sm-2 col-form-label">Subject</label>
                     <div class="col-sm-10">
-                        <input type="subject" class="form-control" id="inputsubject" placeholder="Subject" path="subject">
+                        <form:input type="subject" class="form-control" id="inputsubject" placeholder="Subject" path="subject" /><br />
                     </div>
                 </div>
                 <div class="form-group row">
@@ -42,7 +43,7 @@
                         <button type="submit" class="btn btn-success">Add</button>
                     </div>
                 </div>
-            </form>
+            </form:form>
         </div>
 
         <div id="msg">${message}</div>
