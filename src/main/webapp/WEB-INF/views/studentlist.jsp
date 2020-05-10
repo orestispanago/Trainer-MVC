@@ -16,7 +16,7 @@
         <h1>Students' List</h1>
         <table>
 		<tr>
-                    <td>ID</td><td>FIRST NAME</td><td>LAST NAME</td><td>DATE OF BIRTH</td><td>TUITION FEES</td><td></td>
+                    <td>ID</td><td>FIRST NAME</td><td>LAST NAME</td><td>TUITION FEES</td><td></td>
 		</tr>
 		<c:forEach items="${students}" var="student">
 			<tr>
@@ -24,7 +24,6 @@
                             <td><a href="<c:url value='${editurl}/${student.id}' />">${student.id}</a></td>
                             <td>${student.firstName}</td>
                             <td>${student.lastName}</td>
-                            <td>${student.dateOfBirth}</td>
                             <td>${student.tuitionFees}</td>
                             <td><a href="<c:url value='${deleteurl}/${student.id}' />">delete</a></td>
 			</tr>
