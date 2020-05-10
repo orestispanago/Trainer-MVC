@@ -13,10 +13,10 @@
         <title>Trainers' List</title>
     </head>
     <body>
-        <h1>Trainers' List</h1>
         <div class="container-fluid" id="navbarid">
         </div>
         <div id="includedContent"></div>
+        <h1>Trainers' List</h1>
         <!--<h1>Trainers</h1>-->
         <div class="container">
             <table class="table table-hover">
