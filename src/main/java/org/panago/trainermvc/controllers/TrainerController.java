@@ -87,7 +87,7 @@ public class TrainerController {
     }
 
     // store edit / update for an existing trainer
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String updateTrainer(@ModelAttribute("trainer") @Validated Trainer trainer, BindingResult bindingResult, Model view) {
         if (bindingResult.hasErrors()) {
             return "edittrainer";

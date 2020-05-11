@@ -24,7 +24,7 @@
         <h1>Trainers</h1>
         <div class="container">
             <h2>Edit trainer</h2>
-            <form:form method="POST" action="${updateUrlFINAL}" modelAttribute="trainer">
+            <form:form method="POST" action="${pageContext.request.contextPath}/edit/${trainer.id}" modelAttribute="trainer">
                 <form:input type="hidden" path="id" id="id"/>
                 <div class="form-group row">
                     <label for="inputfirstname" class="col-sm-2 col-form-label">First name</label>
