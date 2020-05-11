@@ -30,18 +30,21 @@
                     <label for="inputfirstname" class="col-sm-2 col-form-label">First name</label>
                     <div class="col-sm-10">
                         <form:input type="firstname" class="form-control" id="inputfirstname" path="firstName"  />
+                        <form:errors path="firstName" cssStyle="color: #ff0000;"/><form:errors path="firstName" cssStyle="color: #ff0000;"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputlastname" class="col-sm-2 col-form-label">Last name</label>
                     <div class="col-sm-10">
                         <form:input type="lastname" class="form-control" id="inputlastname" path="lastName" />
+                        <form:errors path="lastName" cssStyle="color: #ff0000;"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputsubject" class="col-sm-2 col-form-label">Subject</label>
                     <div class="col-sm-10">
                         <form:input type="subject" class="form-control" id="inputsubject" path="subject" />
+                        <form:errors path="subject" cssStyle="color: #ff0000;"/>
                     </div>
                 </div>
                 <div class="form-group row">

@@ -6,7 +6,11 @@ import org.panago.trainermvc.services.ITrainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -49,7 +53,10 @@ public class TrainerController {
 
     // post form for new trainer
     @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String saveTrainer(ModelMap view, Trainer trainer) {
+    public String saveTrainer(@ModelAttribute("trainer") @Validated Trainer trainer, BindingResult bindingResult, Model view) {
+        if (bindingResult.hasErrors()) {
+            return "newtrainer";
+        }
         if (trainerService.save(trainer)) {
             view.addAttribute("message", new String("All good!"));
         } else {
@@ -81,7 +88,10 @@ public class TrainerController {
 
     // store edit / update for an existing trainer
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String updateTrainer(ModelMap view, Trainer trainer) {
+    public String updateTrainer(@ModelAttribute("trainer") @Validated Trainer trainer, BindingResult bindingResult, Model view) {
+        if (bindingResult.hasErrors()) {
+            return "edittrainer";
+        }// TODO fix validation
         trainerService.update(trainer);
         view.addAttribute("msg", new String(""));
         return ("redirect:/list");

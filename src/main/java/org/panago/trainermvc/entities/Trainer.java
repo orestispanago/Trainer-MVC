@@ -17,20 +17,19 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
-
 @Entity
 @Table(name = "trainers", catalog = "trainermvc", schema = "")
 @XmlRootElement
 public class Trainer implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id", nullable = false)
     private Integer id;
-    
+
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
@@ -48,7 +47,8 @@ public class Trainer implements Serializable {
 //    private Date dateOfBirth;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "subject", nullable = false)
+    @Size(min = 1, max = 30)
+    @Column(name = "subject", nullable = false,length = 30)
     private String subject;
 
     public Trainer() {
@@ -64,8 +64,6 @@ public class Trainer implements Serializable {
         this.lastName = lastName;
         this.subject = subject;
     }
-
-
 
     public Integer getId() {
         return id;
@@ -99,8 +97,6 @@ public class Trainer implements Serializable {
         this.subject = subject;
     }
 
-
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -125,5 +121,5 @@ public class Trainer implements Serializable {
     public String toString() {
         return "org.panago.trainermvc.entities.Trainers[ id=" + id + " ]";
     }
-    
+
 }
